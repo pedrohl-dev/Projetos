@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow';
+    background-image: conic-gradient(rgb(107, 107, 107), rgb(36, 36, 36), rgb(107, 107, 107));
+}
+
+section{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box{
+    position: relative;
+    background: rgb(30, 30, 30);
+    color: #fff;
+    width: 350px;
+    height: 450px;
+    display: flex;
+    border-radius: 13px;
+    align-items: center;
+    justify-content: center;
+
+}
+.container{ /*Área do Quadrado*/
+        width: 100%;
+        height: 100%;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    
+    & .title{
+        text-align: center;
+        letter-spacing: 4px;
+        width: 100%;
+        font-size: 40px;
+        height: auto;
+    }    
+}
+
+.input-box{ /*Área do input*/
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 30%;
+
+& input{
+    background-color: transparent;
+    color: #fff;
+    width: 250px;
+    height: 50px;
+    outline: none;
+    border: none;
+    padding: 0 15px;
+    translate: 0 -20px;
+    border-radius: 5px;
+    border: rgb(75, 75, 75) solid 2px;
+    transition: 0.1s;
+    }
+        
+    & label{
+        color: rgb(150, 150, 150);
+        position: absolute;
+        top: auto;
+        left: 5px;      
+        transform: translateY(-25%); 
+        margin-left: 20px;  
+        transition: 0.1s;
+    }   
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{ /*Deslocamento da Label para cima*/
+    background-color:rgb(30, 30, 30);
+    padding: 0 2px;
+    transform: translateY(-165%);
+    transition: 0.1s;
+    color: rgb(76, 76, 255);
+}
+
+input:focus,
+input:valid{ /*Troca de cor do Input*/
+    border: rgb(76, 76, 255) solid 2px;
+    transition: 0.1s;
+}
+    button{
+        background-color: rgb(48, 48, 48);
+        color: #fff;
+        width: 100px;
+        height: 40px;
+        outline: none;
+        border: #585858 solid 2px;
+        border-radius: 10px;
+        margin-left: 50%;
+        translate: -50%;
+        font-size: 13px;
+        font-weight: bold;
+        transition: 0.5s;
+    }
+
+
+button:hover{ /*Botão quando deixa o mouse em cima*/
+    background-color: #5454fe;
+    color: black;
+    border: rgb(60, 60, 255) solid 2px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+button:active{ /*Botão quando clica*/
+    background-color: #4747ff;
+    color: black;
+    border: rgb(60, 60, 255) solid 2px;
+    transform: scale(0.98);
+    transition: 0s;
+}
+
+.box::before, .box::after{ /*Efeito azul atras da tela de login*/
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    background: linear-gradient(45deg, blue, #ffffff00, blue, #ffffff00);
+    background-size: 300%;
+    border-radius: 15px;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin{ /*animação*/
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 300%;
+    }
+}
+
+.box::after{ /*Efeito de desfoque no efeito azul para dar luz*/
+    filter: blur(2rem);
+}
